@@ -66,40 +66,59 @@ public class NetworkUtils {
 
 		@Override
 		protected Void doInBackground(Void... params) {
-			// Find the server using UDP broadcast
+
+			DatagramSocket udpSocket;
+			int count = 0;
 			try {
-				// Open a random port to send the package
-				DatagramSocket c = new DatagramSocket();
-				c.setBroadcast(true);
+				udpSocket = new DatagramSocket();
+
+				udpSocket.setBroadcast(true);
+
+				do {
+					sendDiscoveryMessage(udpSocket);
+				} while (!recieveServerResponse(udpSocket) && count++ <= 3);
+
+				udpSocket.close();
+			} catch (SocketException e) {}
+			
+			
+			return null;
+		}
+
+		private boolean sendDiscoveryMessage(DatagramSocket udpSocket) {
+			try {
 
 				byte[] sendData = "DISCOVER_AIR_SERVER".getBytes();
 
-				try {
-					InetAddress broadCast = getBroadcast();
-					DatagramPacket sendPacket = new DatagramPacket(sendData,
-							sendData.length, broadCast, 8888);
-					c.send(sendPacket);
+				InetAddress broadCast = getBroadcast();
+				DatagramPacket sendPacket = new DatagramPacket(sendData,
+						sendData.length, broadCast, 8888);
+				udpSocket.send(sendPacket);
+			} catch (Exception e) {
+				return false;
+			}
 
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+			return true;
+		}
 
-				// Wait for a response
+		private boolean recieveServerResponse(DatagramSocket udpSocket) {
+
+			try {
 				byte[] recvBuf = new byte[500000];
 				DatagramPacket receivePacket = new DatagramPacket(recvBuf,
 						recvBuf.length);
-				c.setSoTimeout(8000);
-				c.receive(receivePacket);
+				udpSocket.setSoTimeout(1000);
 
-				// Check if the message is correct
+				udpSocket.receive(receivePacket);
+
 				message = new String(receivePacket.getData()).trim();
-
-				// Close the port!
-				c.close();
-			} catch (IOException ex) {
-
+			} catch (SocketException e) {
+				return false;
+			} catch (IOException e) {
+				return false;
 			}
-			return null;
+
+			return true;
 		}
 
 		@Override

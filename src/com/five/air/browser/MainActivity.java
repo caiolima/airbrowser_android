@@ -57,7 +57,6 @@ public class MainActivity extends Activity {
 				return true;
 			}
 		});
-
 		wView.loadUrl(url);
 
 	}

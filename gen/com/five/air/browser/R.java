@@ -23,25 +23,26 @@ public final class R {
         public static final int rounded_app_name=0x7f020004;
     }
     public static final class id {
-        public static final int app_1=0x7f08000c;
-        public static final int app_2=0x7f08000f;
-        public static final int app_3=0x7f080012;
-        public static final int app_4=0x7f080015;
-        public static final int icon_1=0x7f08000d;
-        public static final int icon_2=0x7f080010;
-        public static final int icon_3=0x7f080013;
-        public static final int icon_4=0x7f080016;
+        public static final int app_1=0x7f08000d;
+        public static final int app_2=0x7f080010;
+        public static final int app_3=0x7f080013;
+        public static final int app_4=0x7f080016;
+        public static final int bt_research=0x7f08000c;
+        public static final int icon_1=0x7f08000e;
+        public static final int icon_2=0x7f080011;
+        public static final int icon_3=0x7f080014;
+        public static final int icon_4=0x7f080017;
         public static final int img_app=0x7f080003;
         public static final int load_bar=0x7f080001;
         public static final int lst_app=0x7f080009;
         public static final int lt_main_web=0x7f080000;
         public static final int lt_message_error=0x7f08000a;
         public static final int lt_progress=0x7f080007;
-        public static final int menu_settings=0x7f080018;
-        public static final int name_1=0x7f08000e;
-        public static final int name_2=0x7f080011;
-        public static final int name_3=0x7f080014;
-        public static final int name_4=0x7f080017;
+        public static final int menu_settings=0x7f080019;
+        public static final int name_1=0x7f08000f;
+        public static final int name_2=0x7f080012;
+        public static final int name_3=0x7f080015;
+        public static final int name_4=0x7f080018;
         public static final int progress=0x7f080008;
         public static final int textView1=0x7f080006;
         public static final int textView2=0x7f08000b;
@@ -64,6 +65,7 @@ public final class R {
         public static final int hello_world=0x7f050001;
         public static final int menu_settings=0x7f050002;
         public static final int no_list=0x7f050005;
+        public static final int research=0x7f050006;
         public static final int title_activity_main=0x7f050003;
     }
     public static final class style {
