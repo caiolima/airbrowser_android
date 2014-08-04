@@ -69,10 +69,11 @@ public class AppListActivity extends Activity implements AirServerDiscoveryListe
 	};
 
 	private boolean isNetworkAvailable() {
-	    ConnectivityManager connectivityManager 
-	          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-	    return activeNetworkInfo != null;
+//	    ConnectivityManager connectivityManager 
+//	          = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+//	    NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+//	    return activeNetworkInfo != null;
+		return true;
 	}
 
 	
@@ -127,29 +128,15 @@ public class AppListActivity extends Activity implements AirServerDiscoveryListe
 		locationManager = (LocationManager) this
 				.getSystemService(Context.LOCATION_SERVICE);
 		
-		if(!locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("Por favor, habilite a opção de usar as redes sem fio para determinar sua localização nas opções de localização!")
-			       .setCancelable(false)
-			       .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-			           public void onClick(DialogInterface dialog, int id) {
-			                finish();
-			           }
-			       }).setTitle("Atenção!");
-			AlertDialog alert = builder.create(); 
-			alert.show();
-			return;
-		}
-		
 		if(!isNetworkAvailable()){
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("Por favor, habilite uma conexão com a internet!")
+			builder.setMessage("Por favor, habilite uma conexÔøΩo com a internet!")
 			       .setCancelable(false)
 			       .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
 			                finish();
 			           }
-			       }).setTitle("Atenção!");
+			       }).setTitle("AtenÔøΩÔøΩo!");
 			AlertDialog alert = builder.create(); 
 			alert.show();
 			return;
@@ -192,7 +179,7 @@ public class AppListActivity extends Activity implements AirServerDiscoveryListe
 //
 //			
 //			if(mLocation==null){
-//				Toast.makeText(AppListActivity.this, "Erro na conexão", Toast.LENGTH_SHORT).show();
+//				Toast.makeText(AppListActivity.this, "Erro na conexÔøΩo", Toast.LENGTH_SHORT).show();
 //				return null;
 //			}
 //			

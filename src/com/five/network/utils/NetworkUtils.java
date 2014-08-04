@@ -74,7 +74,6 @@ public class NetworkUtils {
 
 				byte[] sendData = "DISCOVER_AIR_SERVER".getBytes();
 
-				// Try the 255.255.255.255 first
 				try {
 					InetAddress broadCast = getBroadcast();
 					DatagramPacket sendPacket = new DatagramPacket(sendData,
